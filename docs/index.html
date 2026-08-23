@@ -1,76 +1,397 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfólio Rodrigo Ribeiro Carvalho</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem;
-      text-align: center;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Rodrigo Ribeiro Carvalho — Engenharia de IA</title>
+<meta name="description" content="Portfólio de Rodrigo Ribeiro Carvalho — Engenharia de IA." />
 
-    h1 {
-      font-size: 2.5rem;
-      color: #2c3e50;
-    }
+<!-- FAVICON (ícone da aba) — mesmo grafo neural da marca -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='none' stroke='%230E7C74' stroke-width='1.7' stroke-linecap='round'%3E%3Cline x1='5' y1='6' x2='13' y2='12'/%3E%3Cline x1='5' y1='18' x2='13' y2='12'/%3E%3Cline x1='13' y1='12' x2='19' y2='7'/%3E%3Cline x1='13' y1='12' x2='19' y2='17'/%3E%3C/g%3E%3Cg fill='%230E7C74'%3E%3Ccircle cx='5' cy='6' r='2.1'/%3E%3Ccircle cx='5' cy='18' r='2.1'/%3E%3Ccircle cx='13' cy='12' r='2.5'/%3E%3Ccircle cx='19' cy='7' r='2.1'/%3E%3Ccircle cx='19' cy='17' r='2.1'/%3E%3C/g%3E%3C/svg%3E" />
 
-    .card {
-      background-color: white;
-      padding: 2rem;
-      margin: 1rem;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease;
-      width: 280px;
-    }
+<!-- FONTES: Space Grotesk (títulos) | Inter (texto) | JetBrains Mono (rótulos/dados) -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
 
-    .card:hover {
-      transform: scale(1.05);
-    }
+<style>
+/* ==========================================================================
+   TOKENS — trocar a cor de destaque = mudar só --accent.
+   ========================================================================== */
+:root{
+  --paper:#EDEBE4;
+  --panel:#F7F6F1;
+  --ink:#17191C;
+  --muted:#6A6E74;
+  --hairline:#D8D5CB;
+  --accent:#0E7C74;
+  --accent-deep:#0A5A54;
+  --font-display:'Space Grotesk', sans-serif;
+  --font-body:'Inter', sans-serif;
+  --font-mono:'JetBrains Mono', monospace;
+  --maxw:1120px;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--font-body);font-size:17px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+body::before{
+  content:"";position:fixed;inset:0;
+  background-image:radial-gradient(var(--hairline) 1px, transparent 1px);
+  background-size:26px 26px;opacity:.35;pointer-events:none;z-index:0;
+}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;position:relative;z-index:1;}
+a{color:inherit;}
+img{max-width:100%;display:block;}
+.mono{
+  font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--muted);
+}
 
-    .card a {
-      text-decoration: none;
-      color: #2c3e50;
-      font-size: 1.2rem;
-      font-weight: bold;
-    }
+/* ===================== NAV ===================== */
+header.nav{
+  position:sticky;top:0;z-index:20;
+  background:rgba(237,235,228,.82);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--hairline);
+}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px;}
+.brand{display:inline-flex;align-items:center;gap:9px;font-family:var(--font-mono);font-weight:700;letter-spacing:.12em;font-size:15px;text-decoration:none;color:var(--ink);}
+.brand span{color:var(--accent);}
+.brand-mark{width:22px;height:22px;color:var(--accent);flex:none;}
+.hero-mark{width:42px;height:42px;color:var(--accent);display:block;margin-bottom:24px;}
+.nav-links{display:flex;gap:28px;align-items:center;}
+.nav-links a{
+  font-family:var(--font-mono);font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;
+  text-decoration:none;color:var(--muted);transition:color .2s ease;
+}
+.nav-links a:hover{color:var(--ink);}
+.nav-links a.cta{
+  color:var(--accent);border:1px solid var(--accent);padding:7px 14px;border-radius:2px;transition:all .2s ease;
+}
+.nav-links a.cta:hover{background:var(--accent);color:#fff;}
 
-    .cards-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 2rem;
-      margin-top: 2rem;
-    }
+/* ===================== HERO ===================== */
+.hero{padding:120px 0 104px;position:relative;}
+.hero .eyebrow{margin-bottom:24px;}
+.hero h1{
+  font-family:var(--font-display);font-weight:700;
+  font-size:clamp(2.9rem, 7.5vw, 5.4rem);line-height:1.0;letter-spacing:-.03em;
+  margin:0 0 18px;
+}
+.hero .role{
+  font-family:var(--font-display);font-weight:600;
+  font-size:clamp(1.4rem,3.4vw,2rem);letter-spacing:-.01em;
+  color:var(--accent);margin:0 0 40px;
+}
+.actions{display:flex;gap:14px;flex-wrap:wrap;}
+.btn{
+  font-family:var(--font-mono);font-size:13px;letter-spacing:.08em;text-transform:uppercase;
+  text-decoration:none;padding:14px 22px;border-radius:2px;transition:all .2s ease;
+  display:inline-flex;align-items:center;gap:9px;
+}
+.btn-primary{background:var(--ink);color:var(--paper);}
+.btn-primary:hover{background:var(--accent);}
+.btn-ghost{border:1px solid var(--ink);color:var(--ink);}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent);}
 
-    @media (max-width: 600px) {
-      .cards-container {
-        flex-direction: column;
-        align-items: center;
-      }
-    }
-  </style>
+/* assinatura: marcas de canto */
+.corner-frame{position:absolute;inset:64px 0 0;pointer-events:none;}
+.tick{position:absolute;width:20px;height:20px;border-color:var(--accent);}
+.tick.tl{top:0;left:-4px;border-top:2px solid;border-left:2px solid;}
+.tick.tr{top:0;right:-4px;border-top:2px solid;border-right:2px solid;}
+
+/* ===================== SEÇÕES ===================== */
+section{padding:78px 0;position:relative;}
+.section-head{
+  display:flex;align-items:baseline;justify-content:space-between;gap:20px;flex-wrap:wrap;
+  margin-bottom:44px;padding-bottom:18px;border-bottom:1px solid var(--hairline);
+}
+.section-head h2{
+  font-family:var(--font-display);font-weight:600;
+  font-size:clamp(1.5rem,3vw,2.1rem);letter-spacing:-.01em;margin:0;
+}
+
+/* ===================== PROJETOS (lista escalável) ===================== */
+.projects{display:flex;flex-direction:column;gap:22px;max-width:860px;}
+.card{
+  position:relative;background:var(--panel);border:1px solid var(--hairline);
+  border-radius:3px;padding:32px 32px 28px;
+  transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.card:hover{
+  transform:translateY(-3px);box-shadow:0 18px 40px -24px rgba(23,25,28,.4);border-color:var(--accent);
+}
+.card::after{
+  content:"";position:absolute;top:16px;right:16px;width:16px;height:16px;
+  border-top:2px solid var(--hairline);border-right:2px solid var(--hairline);transition:border-color .25s ease;
+}
+.card:hover::after{border-color:var(--accent);}
+.card-top{display:flex;align-items:baseline;gap:16px;margin-bottom:16px;}
+.card-index{font-family:var(--font-mono);font-weight:700;font-size:1.7rem;line-height:1;color:var(--accent);}
+.card-tag{
+  font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--muted);border:1px solid var(--hairline);border-radius:2px;padding:4px 9px;align-self:center;
+}
+.card h3{font-family:var(--font-display);font-weight:600;font-size:1.4rem;line-height:1.2;margin:0 0 12px;letter-spacing:-.01em;}
+.card p.desc{color:var(--muted);font-size:.99rem;margin:0 0 22px;max-width:64ch;}
+.metrics{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px;}
+.metric{
+  font-family:var(--font-mono);font-size:12px;background:rgba(14,124,116,.08);
+  border:1px solid rgba(14,124,116,.25);color:var(--accent-deep);padding:6px 10px;border-radius:2px;
+}
+.metric b{font-weight:700;}
+.card-links{display:flex;gap:22px;flex-wrap:wrap;}
+.card-links a{
+  font-family:var(--font-mono);font-size:12.5px;letter-spacing:.05em;text-transform:uppercase;
+  text-decoration:none;color:var(--ink);display:inline-flex;align-items:center;gap:7px;
+  border-bottom:1px solid transparent;transition:all .2s ease;
+}
+.card-links a:hover{color:var(--accent);border-bottom-color:var(--accent);}
+.card-links svg{width:14px;height:14px;}
+
+/* ===================== STACK ===================== */
+.stack-groups{display:grid;grid-template-columns:repeat(2,1fr);gap:34px 48px;}
+.stack-group h4{
+  font-family:var(--font-mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--muted);margin:0 0 14px;padding-bottom:10px;border-bottom:1px solid var(--hairline);
+}
+.chips{display:flex;flex-wrap:wrap;gap:9px;}
+.chip{
+  font-family:var(--font-mono);font-size:13px;background:var(--panel);
+  border:1px solid var(--hairline);padding:7px 13px;border-radius:2px;transition:all .2s ease;
+}
+.chip:hover{border-color:var(--accent);color:var(--accent);}
+
+/* ===================== CONTATO ===================== */
+.contact-lead{font-size:clamp(1.25rem,3vw,1.75rem);font-family:var(--font-display);font-weight:500;
+  max-width:24ch;line-height:1.25;margin:0 0 34px;letter-spacing:-.01em;}
+.contact-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;max-width:640px;}
+.contact-item{
+  display:flex;align-items:center;gap:14px;background:var(--panel);
+  border:1px solid var(--hairline);border-radius:3px;padding:16px 18px;text-decoration:none;transition:all .2s ease;
+}
+.contact-item:hover{border-color:var(--accent);transform:translateY(-2px);}
+.contact-item svg{width:20px;height:20px;flex:none;color:var(--accent);}
+.contact-item .ci-k{font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);}
+.contact-item .ci-v{font-size:.95rem;font-weight:500;word-break:break-all;}
+
+/* ===================== FOOTER ===================== */
+footer{border-top:1px solid var(--hairline);padding:34px 0;}
+.foot-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;}
+.foot-inner .mono{font-size:11.5px;}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease;}
+.reveal.in{opacity:1;transform:none;}
+
+/* responsivo */
+@media (max-width:820px){
+  .stack-groups,.contact-grid{grid-template-columns:1fr;}
+  .nav-links{gap:18px;}
+  .nav-links a:not(.cta){display:none;}
+  .hero{padding:80px 0 64px;}
+  section{padding:56px 0;}
+  .card{padding:26px 22px 24px;}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none !important;transition:none !important;}
+  .reveal{opacity:1;transform:none;}
+  html{scroll-behavior:auto;}
+}
+</style>
 </head>
 <body>
-  <h1>🌐 Portfólio de Projetos</h1>
-  <div class="cards-container">
-    <div class="card">
-      <a href="https://rodrigo-rrc.github.io/Projetos_Java/">☕ Projetos Java</a>
-    </div>
-    <div class="card">
-      <a href="https://rodrigo-rrc.github.io/Projetos_BI/">📊 Projetos BI</a>
-    </div>
-    <div class="card">
-      <a href="https://rodrigo-rrc.github.io/Projetos_IA/">🧠 Projetos IA</a>
+
+<!-- ===================== NAV ===================== -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="#topo" class="brand">
+      <svg class="brand-mark" viewBox="0 0 24 24" aria-hidden="true">
+        <g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round">
+          <line x1="5" y1="6" x2="13" y2="12"/><line x1="5" y1="18" x2="13" y2="12"/>
+          <line x1="13" y1="12" x2="19" y2="7"/><line x1="13" y1="12" x2="19" y2="17"/>
+        </g>
+        <g fill="currentColor">
+          <circle cx="5" cy="6" r="2.1"/><circle cx="5" cy="18" r="2.1"/>
+          <circle cx="13" cy="12" r="2.5"/><circle cx="19" cy="7" r="2.1"/><circle cx="19" cy="17" r="2.1"/>
+        </g>
+      </svg>
+      RRC<span>.</span>ai
+    </a>
+    <nav class="nav-links">
+      <a href="#projetos">Projetos</a>
+      <a href="#stack">Stack</a>
+      <a href="#contato" class="cta">Contato</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero" id="topo">
+  <div class="corner-frame wrap">
+    <span class="tick tl"></span>
+    <span class="tick tr"></span>
+  </div>
+  <div class="wrap">
+    <svg class="hero-mark" viewBox="0 0 24 24" aria-hidden="true">
+      <g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round">
+        <line x1="5" y1="6" x2="13" y2="12"/><line x1="5" y1="18" x2="13" y2="12"/>
+        <line x1="13" y1="12" x2="19" y2="7"/><line x1="13" y1="12" x2="19" y2="17"/>
+      </g>
+      <g fill="currentColor">
+        <circle cx="5" cy="6" r="2.1"/><circle cx="5" cy="18" r="2.1"/>
+        <circle cx="13" cy="12" r="2.5"/><circle cx="19" cy="7" r="2.1"/><circle cx="19" cy="17" r="2.1"/>
+      </g>
+    </svg>
+    <p class="eyebrow mono">Portfólio</p>
+    <h1>Rodrigo Ribeiro Carvalho</h1>
+    <p class="role">Engenharia de IA</p>
+    <div class="actions">
+      <a href="#projetos" class="btn btn-primary">Ver projetos</a>
+      <a href="#contato" class="btn btn-ghost">Contato</a>
     </div>
   </div>
+</section>
+
+<!-- ===================== PROJETOS ===================== -->
+<section id="projetos">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2>Projetos</h2>
+    </div>
+
+    <div class="projects">
+
+      <!-- ================================================================
+           PROJETO 01
+           >>> PARA ADICIONAR UM NOVO PROJETO:
+           copie todo este bloco <article class="card"> ... </article>,
+           cole logo abaixo dele e troque: número, tag, título,
+           descrição, métricas e links.
+           ================================================================ -->
+      <article class="card reveal">
+        <div class="card-top">
+          <span class="card-index">01</span>
+          <span class="card-tag">Visão Computacional</span>
+        </div>
+        <h3>Detecção de Placas Veiculares Brasileiras</h3>
+        <p class="desc">
+          Fine-tuning do modelo YOLO26s para placas brasileiras a partir do dataset
+          UFPR-ALPR, com otimização genética de hiperparâmetros e avaliação separada por
+          tipo de veículo. Modelo final publicado no HuggingFace.
+        </p>
+        <div class="metrics">
+          <span class="metric">mAP@50 <b>97,04%</b></span>
+          <span class="metric">IoU <b>89,74%</b></span>
+          <span class="metric">mAP@50-95 <b>81,70%</b></span>
+        </div>
+        <div class="card-links">
+          <a href="https://github.com/Rodrigo-RRC/license-plate-br-yolo26s-finetuning" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-1.7c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5A11.5 11.5 0 0 0 23.5 12C23.5 5.7 18.3.5 12 .5z"/></svg>
+            Repositório
+          </a>
+          <a href="https://huggingface.co/RodrigoRRC/license-plate-br-yolo26s" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18Zm-3 7a1.3 1.3 0 1 1 0 2.6A1.3 1.3 0 0 1 9 10Zm6 0a1.3 1.3 0 1 1 0 2.6A1.3 1.3 0 0 1 15 10Zm-3 8c-2 0-3.7-1.2-4.4-3h8.8c-.7 1.8-2.4 3-4.4 3Z"/></svg>
+            Modelo (HuggingFace)
+          </a>
+        </div>
+      </article>
+      <!-- ============ FIM DO PROJETO 01 ============ -->
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== STACK ===================== -->
+<section id="stack">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2>Stack</h2>
+    </div>
+    <div class="stack-groups reveal">
+      <div class="stack-group">
+        <h4>Linguagens</h4>
+        <div class="chips">
+          <span class="chip">Python</span>
+          <span class="chip">SQL</span>
+        </div>
+      </div>
+      <div class="stack-group">
+        <h4>IA & Machine Learning</h4>
+        <div class="chips">
+          <span class="chip">PyTorch</span>
+          <span class="chip">Ultralytics YOLO</span>
+          <span class="chip">HuggingFace</span>
+          <span class="chip">TorchMetrics</span>
+          <span class="chip">Pandas</span>
+        </div>
+      </div>
+      <div class="stack-group">
+        <h4>Deploy & Ferramentas</h4>
+        <div class="chips">
+          <span class="chip">FastAPI</span>
+          <span class="chip">Docker</span>
+          <span class="chip">Git</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CONTATO ===================== -->
+<section id="contato">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2>Contato</h2>
+    </div>
+    <p class="contact-lead reveal">Aberto a oportunidades em Engenharia de IA.</p>
+    <div class="contact-grid reveal">
+      <a class="contact-item" href="https://www.linkedin.com/in/rodrigo-ribeiro-datascience" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 1 0 5 8.5a2.5 2.5 0 0 0 0-5zM3 9h4v12H3zM10 9h3.8v1.7h.1c.5-.9 1.8-1.9 3.6-1.9 3.9 0 4.6 2.5 4.6 5.8V21h-4v-5.4c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9V21h-4z"/></svg>
+        <span><span class="ci-k">LinkedIn</span><br><span class="ci-v">rodrigo-ribeiro-datascience</span></span>
+      </a>
+      <a class="contact-item" href="https://github.com/Rodrigo-RRC" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-1.7c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5A11.5 11.5 0 0 0 23.5 12C23.5 5.7 18.3.5 12 .5z"/></svg>
+        <span><span class="ci-k">GitHub</span><br><span class="ci-v">Rodrigo-RRC</span></span>
+      </a>
+      <a class="contact-item" href="mailto:rodrigoribeiroc.dev@gmail.com">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M2 5.5A1.5 1.5 0 0 1 3.5 4h17A1.5 1.5 0 0 1 22 5.5v13A1.5 1.5 0 0 1 20.5 20h-17A1.5 1.5 0 0 1 2 18.5zM4 6.6V7l8 5 8-5v-.4l-8 5z"/></svg>
+        <span><span class="ci-k">E-mail</span><br><span class="ci-v">rodrigoribeiroc.dev@gmail.com</span></span>
+      </a>
+      <a class="contact-item" href="https://wa.me/5547991820339" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.4A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.6-.6-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8 0-1.3.7-2 .9-2.2.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.4.6c-.2.2-.3.4-.1.7.2.3.9 1.4 1.9 2.3 1.3 1.1 2.3 1.5 2.6 1.6.3.1.5.1.7-.1l.7-.9c.2-.3.4-.2.7-.1l2 .9c.3.2.5.2.5.4.1.2.1.7-.1 1.2Z"/></svg>
+        <span><span class="ci-k">WhatsApp</span><br><span class="ci-v">+55 47 99182-0339</span></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+  <div class="wrap foot-inner">
+    <span class="mono">© 2026 Rodrigo Ribeiro Carvalho</span>
+    <span class="mono">Engenharia de IA</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var items = document.querySelectorAll('.reveal');
+  if(reduce || !('IntersectionObserver' in window)){
+    items.forEach(function(el){el.classList.add('in');});return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}
+    });
+  },{threshold:.14});
+  items.forEach(function(el){io.observe(el);});
+})();
+</script>
+
 </body>
 </html>
