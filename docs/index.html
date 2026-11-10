@@ -151,6 +151,10 @@ section{padding:78px 0;position:relative;}
 }
 .card-links a:hover{color:var(--accent);border-bottom-color:var(--accent);}
 .card-links svg{width:14px;height:14px;}
+.card-links a.cta{
+  background:var(--accent);color:var(--panel);padding:6px 12px;border-radius:2px;border-bottom:none;
+}
+.card-links a.cta:hover{background:var(--accent-deep);color:var(--panel);}
 
 /* ===================== STACK ===================== */
 .stack-groups{display:grid;grid-template-columns:repeat(2,1fr);gap:34px 48px;}
@@ -296,6 +300,10 @@ footer{border-top:1px solid var(--hairline);padding:34px 0;}
           <a href="https://huggingface.co/RodrigoRRC/license-plate-br-yolo26s" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18Zm-3 7a1.3 1.3 0 1 1 0 2.6A1.3 1.3 0 0 1 9 10Zm6 0a1.3 1.3 0 1 1 0 2.6A1.3 1.3 0 0 1 15 10Zm-3 8c-2 0-3.7-1.2-4.4-3h8.8c-.7 1.8-2.4 3-4.4 3Z"/></svg>
             Modelo (HuggingFace)
+          </a>
+          <a class="cta" href="https://huggingface.co/spaces/RodrigoRRC/deteccao-placas-br" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            Testar online
           </a>
         </div>
       </article>
