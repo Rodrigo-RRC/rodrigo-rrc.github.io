@@ -129,7 +129,7 @@ section{padding:78px 0;position:relative;}
   border-top:2px solid var(--hairline);border-right:2px solid var(--hairline);transition:border-color .25s ease;
 }
 .card:hover::after{border-color:var(--accent);}
-.card-top{display:flex;align-items:baseline;gap:16px;margin-bottom:16px;}
+.card-top{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;row-gap:10px;margin-bottom:16px;}
 .card-index{font-family:var(--font-mono);font-weight:700;font-size:1.7rem;line-height:1;color:var(--accent);}
 .card-tag{
   font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;
@@ -155,6 +155,20 @@ section{padding:78px 0;position:relative;}
   background:var(--accent);color:var(--panel);padding:6px 12px;border-radius:2px;border-bottom:none;
 }
 .card-links a.cta:hover{background:var(--accent-deep);color:var(--panel);}
+
+/* selo "em construção" — mesmo formato da .card-tag, na cor de destaque */
+.card-status{
+  font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--accent-deep);background:rgba(14,124,116,.08);border:1px dashed var(--accent);
+  border-radius:2px;padding:4px 9px;align-self:center;display:inline-flex;align-items:center;gap:7px;
+}
+.card-status::before{
+  content:"";width:7px;height:7px;border-radius:50%;background:var(--accent);
+  animation:pulse 1.6s ease-in-out infinite;
+}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.25;}}
+.card-progress{margin:-8px 0 24px;font-size:11.5px;}
+.card-progress b{color:var(--accent-deep);font-weight:700;}
 
 /* ===================== STACK ===================== */
 .stack-groups{display:grid;grid-template-columns:repeat(2,1fr);gap:34px 48px;}
@@ -308,6 +322,37 @@ footer{border-top:1px solid var(--hairline);padding:34px 0;}
         </div>
       </article>
       <!-- ============ FIM DO PROJETO 01 ============ -->
+
+      <!-- ================================================================
+           PROJETO 02 — EM CONSTRUÇÃO
+           ================================================================ -->
+      <article class="card reveal">
+        <div class="card-top">
+          <span class="card-index">02</span>
+          <span class="card-tag">Visão Computacional</span>
+          <span class="card-status">Em construção</span>
+        </div>
+        <h3>Validação de Pose Facial (Pitch, Yaw e Roll)</h3>
+        <p class="desc">
+          Guardrail de qualidade facial: recebe uma foto de rosto, calcula a orientação
+          da cabeça (pitch, yaw e roll) com MediaPipe Face Landmarker e aprova ou reprova
+          a imagem conforme um limite de tolerância por ângulo. Projeto em desenvolvimento,
+          documentado passo a passo no README.
+        </p>
+        <div class="metrics">
+          <span class="metric">MediaPipe Tasks</span>
+          <span class="metric"><b>478</b> landmarks 3D</span>
+          <span class="metric">Threshold por ângulo</span>
+        </div>
+        <p class="card-progress mono">Progresso: <b>3 de 9</b> etapas · próxima: cálculo de pitch, yaw e roll</p>
+        <div class="card-links">
+          <a href="https://github.com/Rodrigo-RRC/images_positions" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-1.7c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5A11.5 11.5 0 0 0 23.5 12C23.5 5.7 18.3.5 12 .5z"/></svg>
+            Repositório
+          </a>
+        </div>
+      </article>
+      <!-- ============ FIM DO PROJETO 02 ============ -->
 
     </div>
   </div>
